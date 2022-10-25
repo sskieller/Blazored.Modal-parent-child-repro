@@ -1,0 +1,17 @@
+﻿@using Blazored.Modal.Services
+@using Blazored.Modal
+<h3>ParentModal</h3>
+
+<button class="btn btn-primary" @onclick="OnClose">Open Child Modal</button>
+
+@code {
+    [CascadingParameter] IModalService ModalService { get; set; } = default!;
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+
+    private void OnClose()
+    {
+        ModalService.Show<ChildModal>();
+
+        ModalInstance.CancelAsync();
+    }
+}

@@ -1,0 +1,18 @@
+﻿<h3>ChildModal</h3>
+
+@code {
+    [Inject] ILogger<ChildModal> Logger { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Logger.LogWarning("ChildModal OnInitialized");
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Logger.LogWarning("ChildModal OnInitializedAsync");
+        return base.OnInitializedAsync();
+    }
+
+}
